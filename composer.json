@@ -1,0 +1,31 @@
+{
+  "name": "ollieread/discord-api",
+  "description": "An entity based Discord API",
+  "type": "library",
+  "license": "MIT",
+  "version": "dev-develop",
+  "authors": [
+    {
+      "name": "Ollie Read",
+      "email": "ollie@sprocketbox.io"
+    }
+  ],
+  "require": {
+    "php": "^7.2",
+    "laravel/framework": "~5.6",
+    "sprocketbox/respite": "dev-develop",
+    "sprocketbox/articulate": "dev-develop"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ollieread\\Discord\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Ollieread\\Discord\\ServiceProvider"
+      ]
+    }
+  }
+}
