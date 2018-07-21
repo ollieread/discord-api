@@ -4,31 +4,78 @@ namespace Ollieread\Discord\Support;
 
 class Snowflake
 {
+    /**
+     * @var string
+     */
     protected $id;
+
+    /**
+     * @var int
+     */
+    protected $timestamp;
+
+    /**
+     * @var int
+     */
+    protected $workerId;
+
+    /**
+     * @var int
+     */
+    protected $processId;
+
+    /**
+     * @var int
+     */
+    protected $increment;
 
     public function __construct(string $id)
     {
-        $this->id = $id;
+        $this->id        = $id;
+        $this->timestamp = ($this->id >> 22) + 1420070400000;
+        $this->workerId  = ($this->id & 0x3E0000) >> 17;
+        $this->processId = ($this->id & 0x1F000) >> 12;
+        $this->increment = $this->id & 0xFFF;
     }
 
-    public function timestamp(): int
+    /**
+     * @return string
+     */
+    public function getId(): string
     {
-        return ($this->id >> 22) + 1420070400000;
+        return $this->id;
     }
 
-    public function workerId(): int
+    /**
+     * @return int
+     */
+    public function getTimestamp(): int
     {
-        return ($this->id & 0x3E0000) >> 17;
+        return $this->timestamp;
     }
 
-    public function processId(): int
+    /**
+     * @return int
+     */
+    public function getWorkerId(): int
     {
-        return ($this->id & 0x1F000) >> 12;
+        return $this->workerId;
     }
 
-    public function increment(): int
+    /**
+     * @return int
+     */
+    public function getProcessId(): int
     {
-        return $this->id & 0xFFF;
+        return $this->processId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIncrement(): int
+    {
+        return $this->increment;
     }
 
     public function __toString()

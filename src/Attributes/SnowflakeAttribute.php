@@ -7,12 +7,12 @@ use Sprocketbox\Articulate\Attributes\BaseAttribute;
 
 class SnowflakeAttribute extends BaseAttribute
 {
-    public function cast($value)
+    public function cast($value, array $data = [])
     {
         return $value ? new Snowflake($value) : null;
     }
 
-    public function parse($value)
+    public function parse($value, array $data = [])
     {
         return (string) $value;
     }

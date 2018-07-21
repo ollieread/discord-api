@@ -26,7 +26,7 @@ class GuildMapper extends EntityMapper
     public function map(EntityMapping $mapping)
     {
         $mapping->setKey('id');
-        $mapping->setProvider('api-discord');
+        $mapping->setProvider('discord');
         $mapping->setRepository(GuildRepository::class);
 
         $mapping->snowflake('id');

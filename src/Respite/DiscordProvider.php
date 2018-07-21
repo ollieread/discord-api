@@ -28,6 +28,10 @@ class DiscordProvider extends OAuth2Provider
      */
     public function getHeaders(): array
     {
+        if (! $this->accessToken) {
+            throw new \RuntimeException('No access token provided');
+        }
+
         $headers = [
             'User-Agent'    => 'DiscordAPI (https://github.com/ollieread/api-discord, 1)',
             'Content-Type'  => 'application/json',
