@@ -2,9 +2,18 @@
 
 namespace Ollieread\Discord\Entities\Channel;
 
-use Sprocketbox\Articulate\Entities\Entity;
+use Ollieread\Discord\Entities\Channel;
 
-class Category extends Entity
+
+/**
+ * Class Category
+ *
+ * @property \Ollieread\Discord\Support\Snowflake $guildId
+ * @property int                                  $position
+ * @property \Ollieread\Discord\Support\Snowflake $parentId
+ *
+ * @package Ollieread\Discord\Entities\Channel
+ */
+class Category extends Channel
 {
-
 }

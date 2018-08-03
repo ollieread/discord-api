@@ -3,6 +3,7 @@
 namespace Ollieread\Discord\Mappers;
 
 use Ollieread\Discord\Entities\Guild;
+use Ollieread\Discord\Entities\Role;
 use Ollieread\Discord\Repositories\GuildRepository;
 use Sprocketbox\Articulate\Contracts\EntityMapping;
 use Sprocketbox\Articulate\Entities\EntityMapper;
@@ -44,7 +45,7 @@ class GuildMapper extends EntityMapper
         $mapping->int('verification_level');
         $mapping->int('default_mMessage_notifications');
         $mapping->int('explicit_content_filter');
-        $mapping->array('roles');//('roles', Role::class, true);
+        $mapping->entity('roles', Role::class, true);//('roles', Role::class, true);
         $mapping->array('emojis');//entity('emojis', Emoji::class, true);
         $mapping->array('features');
         $mapping->int('mfa_level');

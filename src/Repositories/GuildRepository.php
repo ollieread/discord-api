@@ -53,7 +53,7 @@ class GuildRepository extends RespiteRepository
 
             if (\count($fields)) {
                 if ($guild->isPersisted()) {
-                    $guild = $this->builder()->patch('guilds/{id}', $guild->id)->body($fields)->one();
+                    $guild = $this->builder()->patch('guilds/{id}', [$guild->id])->body($fields)->one();
                 } else {
                     $guild = $this->builder()->post('guilds')->body($fields)->one();
                 }
